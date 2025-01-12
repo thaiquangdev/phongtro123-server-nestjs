@@ -20,6 +20,7 @@ async function bootstrap() {
     .setTitle('Phòng trọ 123 API')
     .setVersion('1.0')
     .addTag('Auth')
+    .addTag('Users')
     .build();
   const documentFactory = () => SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, documentFactory);

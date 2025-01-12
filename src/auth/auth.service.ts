@@ -161,8 +161,24 @@ export class AuthService {
     };
   }
 
+  // đăng xuất
+  async logout(id: string): Promise<{ message: string }> {
+    const user = await this.userModel.findById(id);
+    if (!user) {
+      throw new BadRequestException('Không tìm thấy người dùng');
+    }
+
+    user.refreshToken = null;
+    await user.save();
+    return {
+      message: 'Đăng xuất thành công',
+    };
+  }
+
   // tạo lại token mới từ refresh token
-  async refreshToken(refreshToken: string) {
+  async refreshToken(
+    refreshToken: string,
+  ): Promise<{ accessToken: string; refreshToken: string }> {
     try {
       const verify = await this.jwtService.verify(refreshToken, {
         secret: process.env.JWT_SECRET,
@@ -172,11 +188,11 @@ export class AuthService {
         refreshToken,
       });
       if (checkExistToken) {
-        const accessToken = this.generateAccessToken(
+        const accessToken = await this.generateAccessToken(
           String(checkExistToken._id),
           checkExistToken.email,
         );
-        const refreshToken = this.generateRefreshToken(
+        const refreshToken = await this.generateRefreshToken(
           String(checkExistToken._id),
           checkExistToken.email,
         );

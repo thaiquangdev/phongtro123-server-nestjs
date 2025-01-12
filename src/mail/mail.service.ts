@@ -25,4 +25,14 @@ export class MailService {
     };
     await this.transporter.sendMail(mailOptions);
   }
+
+  async sendMailForgotPassword(email: string, token: string): Promise<void> {
+    const mailOptions = {
+      from: 'your-email@gmail.com', // Email người gửi
+      to: email, // Email người nhận
+      subject: 'Quên mật khẩu',
+      html: `<p>Mã token của bạn là: ${token}</p>`,
+    };
+    await this.transporter.sendMail(mailOptions);
+  }
 }
