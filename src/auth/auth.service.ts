@@ -24,7 +24,7 @@ export class AuthService {
   ) {}
 
   // đăng ký
-  async register(registerDto: RegisterDto): Promise<User> {
+  async register(registerDto: RegisterDto): Promise<{ message: string }> {
     const { fullName, phoneNumber, email, password, role } = registerDto;
 
     // kiểm tra người dùng đã tồn tại chưa
@@ -52,7 +52,9 @@ export class AuthService {
           );
         }
 
-        return userExist;
+        return {
+          message: 'Gửi OTP thành công, vui lòng kiểm tra email của bạn',
+        };
       }
     }
 
@@ -86,7 +88,9 @@ export class AuthService {
       );
     }
 
-    return newUser;
+    return {
+      message: 'Tạo tài khoản thành công. Vui lòng kiểm tra email của bạn',
+    };
   }
 
   // xác nhận otp
