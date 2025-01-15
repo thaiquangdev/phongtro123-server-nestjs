@@ -8,7 +8,6 @@ export class CreateCategoryDto {
   name: string;
 
   @ApiProperty()
-  @IsString({ message: 'Mô tả là một chuỗi ký tự' })
   @IsEmpty()
   description: string;
 }

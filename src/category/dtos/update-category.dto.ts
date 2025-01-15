@@ -7,6 +7,5 @@ export class UpdateCategoryDto {
   name: string;
 
   @ApiProperty()
-  @IsString({ message: 'Mô tả là một chuỗi ký tự' })
   description: string;
 }

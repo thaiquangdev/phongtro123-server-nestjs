@@ -7,6 +7,7 @@ import { AuthService } from './auth/auth.service';
 import { AuthModule } from './auth/auth.module';
 import { MailModule } from './mail/mail.module';
 import { CategoryModule } from './category/category.module';
+import { PostModule } from './post/post.module';
 
 @Module({
   imports: [
@@ -26,6 +27,8 @@ import { CategoryModule } from './category/category.module';
     MailModule,
 
     CategoryModule,
+
+    PostModule,
   ],
   controllers: [AuthController],
   providers: [AuthService],

@@ -15,7 +15,7 @@ export class TransformResponseInterceptor implements NestInterceptor {
     return next.handle().pipe(
       map((data) => ({
         status: 'success',
-        message: data?.message || 'Thành công',
+        message: 'Thành công',
         data: data?.data || data,
       })),
     );
