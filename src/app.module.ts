@@ -8,6 +8,8 @@ import { AuthModule } from './auth/auth.module';
 import { MailModule } from './mail/mail.module';
 import { CategoryModule } from './category/category.module';
 import { PostModule } from './post/post.module';
+import { ReportModule } from './report/report.module';
+import { WishlistModule } from './wishlist/wishlist.module';
 
 @Module({
   imports: [
@@ -29,6 +31,10 @@ import { PostModule } from './post/post.module';
     CategoryModule,
 
     PostModule,
+
+    ReportModule,
+
+    WishlistModule,
   ],
   controllers: [AuthController],
   providers: [AuthService],
