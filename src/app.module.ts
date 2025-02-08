@@ -10,6 +10,7 @@ import { CategoryModule } from './category/category.module';
 import { PostModule } from './post/post.module';
 import { ReportModule } from './report/report.module';
 import { WishlistModule } from './wishlist/wishlist.module';
+import { WalletModule } from './wallet/wallet.module';
 
 @Module({
   imports: [
@@ -35,6 +36,8 @@ import { WishlistModule } from './wishlist/wishlist.module';
     ReportModule,
 
     WishlistModule,
+
+    WalletModule,
   ],
   controllers: [AuthController],
   providers: [AuthService],
