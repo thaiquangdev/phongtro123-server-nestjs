@@ -11,6 +11,7 @@ import { PostModule } from './post/post.module';
 import { ReportModule } from './report/report.module';
 import { WishlistModule } from './wishlist/wishlist.module';
 import { WalletModule } from './wallet/wallet.module';
+import { PostPricingModule } from './post-pricing/post-pricing.module';
 
 @Module({
   imports: [
@@ -38,6 +39,8 @@ import { WalletModule } from './wallet/wallet.module';
     WishlistModule,
 
     WalletModule,
+
+    PostPricingModule,
   ],
   controllers: [AuthController],
   providers: [AuthService],
